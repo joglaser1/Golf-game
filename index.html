@@ -1,0 +1,480 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1">&lt;title&gt;You vs. Blades Brown&lt;/title&gt;</p>
+<p class="p1">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css"&gt;</p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #f5f5f3;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #1a1a1a;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 2rem 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>#game {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>max-width: 620px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Hero */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #e0e0da;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.game-title { font-size: 20px; font-weight: 600; letter-spacing: -0.3px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.game-sub { font-size: 12px; color: #777; margin-top: 3px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.badge { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 500; background: #E1F5EE; color: #0F6E56; white-space: nowrap; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.progress-wrap { margin-bottom: 1.25rem; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.progress-label { display: flex; justify-content: space-between; font-size: 11px; color: #888; margin-bottom: 5px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.progress-track { height: 4px; background: #e8e8e4; border-radius: 2px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.progress-fill { height: 4px; border-radius: 2px; background: #1D9E75; transition: width 0.5s ease; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.standing-row { display: flex; gap: 8px; align-items: center; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.standing-chip { flex: 1; background: #f5f5f3; border-radius: 10px; padding: 10px 12px; text-align: center; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.sc-label { font-size: 11px; color: #888; margin-bottom: 2px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.sc-val { font-size: 20px; font-weight: 600; color: #1a1a1a; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.sc-rel { font-size: 11px; color: #888; margin-top: 1px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.divider-vs { font-size: 12px; color: #bbb; flex-shrink: 0; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Cards */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hole-card {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #e0e0da;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 1.25rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hole-header {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-bottom: 1px solid #f0f0ec;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hole-name { font-size: 15px; font-weight: 600; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hole-meta { font-size: 12px; color: #888; margin-top: 2px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hole-num-badge {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 36px; height: 36px; border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #e0e0da;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex; align-items: center; justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 13px; font-weight: 600; color: #444; flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Blades row */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.blades-row {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex; gap: 10px; align-items: flex-start;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #f8f7ff; border-radius: 10px; padding: 12px; margin-bottom: 1.25rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #e8e6f8;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.bb-avatar {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 36px; height: 36px; border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #EEEDFE; border: 1px solid #AFA9EC;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex; align-items: center; justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 12px; font-weight: 600; color: #3C3489; flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.bb-name { font-size: 11px; font-weight: 600; color: #3C3489; margin-bottom: 3px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.bb-text { font-size: 12px; color: #555; line-height: 1.55; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Shot buttons */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.shot-label { font-size: 11px; font-weight: 600; color: #888; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.6px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.shot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.shot-btn {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #e0e0da; border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 14px 10px; cursor: pointer; text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #fff; transition: border-color 0.15s, background 0.15s;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.shot-btn:hover { background: #f8f8f6; border-color: #bbb; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.shot-icon { font-size: 22px; margin-bottom: 6px; color: #555; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.shot-name { font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 3px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.shot-desc { font-size: 11px; color: #888; margin-bottom: 7px; line-height: 1.4; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.risk-pill { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.risk-low { background: #E1F5EE; color: #0F6E56; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.risk-med { background: #FAEEDA; color: #854F0B; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.risk-high { background: #FCEBEB; color: #A32D2D; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Result */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.res-vs { display: flex; align-items: center; width: 100%; margin-bottom: 1rem; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.res-player { flex: 1; text-align: center; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.res-player-name { font-size: 11px; color: #888; margin-bottom: 4px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.res-strokes { font-size: 38px; font-weight: 600; line-height: 1; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.res-score-name { font-size: 12px; margin-top: 4px; font-weight: 600; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.res-divider { padding: 0 12px; color: #bbb; font-size: 14px; flex-shrink: 0; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.outcome-box { border-radius: 10px; padding: 1rem; margin-bottom: 1rem; text-align: center; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.outcome-win { background: #E1F5EE; border: 1px solid #9FE1CB; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.outcome-lose { background: #FCEBEB; border: 1px solid #F7C1C1; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.outcome-tie { background: #f5f5f3; border: 1px solid #e0e0da; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.outcome-headline { font-size: 15px; font-weight: 600; margin-bottom: 6px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.outcome-win .outcome-headline { color: #0F6E56; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.outcome-lose .outcome-headline { color: #A32D2D; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.outcome-tie .outcome-headline { color: #333; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.outcome-text { font-size: 12px; line-height: 1.55; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.outcome-win .outcome-text { color: #085041; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.outcome-lose .outcome-text { color: #791F1F; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.outcome-tie .outcome-text { color: #666; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Buttons */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.next-btn, .play-again {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 100%; padding: 11px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #e0e0da; border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #fff; cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 14px; font-weight: 600; color: #1a1a1a;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: background 0.15s;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.next-btn:hover, .play-again:hover { background: #f5f5f3; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Final */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.final-hero {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #e0e0da; border-radius: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 1.5rem; background: #fff; margin-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.final-hl { font-size: 22px; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 4px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.final-sub { font-size: 13px; color: #777; margin-bottom: 1.5rem; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.final-scores { display: flex; align-items: center; gap: 8px; margin-bottom: 1.25rem; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.final-verdict {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 13px; color: #555; line-height: 1.65;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 1rem; background: #f5f5f3; border-radius: 10px; margin-bottom: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Scorecard */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.scorecard-wrap { border: 1px solid #e0e0da; border-radius: 14px; overflow: hidden; margin-bottom: 1rem; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.scorecard { width: 100%; border-collapse: collapse; font-size: 12px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.scorecard th {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #f5f5f3; color: #888; font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 8px 10px; text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-bottom: 1px solid #e8e8e4;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.scorecard td {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 8px 10px; text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-bottom: 1px solid #f0f0ec; color: #1a1a1a;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.scorecard tr:last-child td { border-bottom: none; font-weight: 600; background: #f5f5f3; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.scorecard .hn { color: #888; font-weight: 600; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.s-eagle { display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#EEEDFE;color:#3C3489;font-weight:600;font-size:12px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.s-birdie { display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#E6F1FB;color:#0C447C;font-weight:600;font-size:12px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.s-par<span class="Apple-converted-space">    </span>{ display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;font-size:12px;color:#333; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.s-bogey<span class="Apple-converted-space">  </span>{ display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:#FCEBEB;color:#A32D2D;font-weight:600;font-size:12px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.s-double { display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:#FAECE7;color:#712B13;font-weight:600;font-size:12px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hidden { display: none; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>@media (max-width: 480px) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { padding: 1rem 0.75rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.shot-grid { grid-template-columns: 1fr; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.final-scores { flex-direction: column; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1">&lt;div id="game"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Hero --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hero"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-top"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="game-title"&gt;You vs. Blades Brown&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="game-sub"&gt;9 holes against the PGA Tour's 19-year-old phenom&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="badge"&gt;Live match&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="progress-wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="progress-label"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;Hole &lt;span id="cur-hole-num"&gt;1&lt;/span&gt; of 9&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span id="progress-pct"&gt;0% complete&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="progress-track"&gt;&lt;div class="progress-fill" id="progress" style="width:0%"&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="standing-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="standing-chip"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="sc-label"&gt;You&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="sc-val" id="your-running"&gt;E&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="sc-rel" id="your-strokes-total"&gt;—&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="divider-vs"&gt;vs&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="standing-chip"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="sc-label"&gt;Blades Brown&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="sc-val" id="blades-running"&gt;E&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="sc-rel" id="blades-strokes-total"&gt;—&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Choose phase --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="phase-choose"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hole-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hole-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="hole-name" id="hole-name"&gt;Opening Drive&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="hole-meta" id="hole-meta"&gt;Par 4 · 412 yds&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hole-num-badge" id="hole-num-badge"&gt;1&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="blades-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="bb-avatar"&gt;BB&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="bb-name"&gt;Blades Brown&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="bb-text" id="blades-comment"&gt;Blades steps up looking focused. He turned pro at 17 — he's been playing pressure golf his whole life.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="shot-label"&gt;Choose your approach&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="shot-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="shot-btn" onclick="takeShot('safe')" role="button" tabindex="0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="shot-icon"&gt;&lt;i class="ti ti-shield"&gt;&lt;/i&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="shot-name"&gt;Lay-up&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="shot-desc"&gt;Control the fairway, play for par&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="risk-pill risk-low"&gt;Low risk&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="shot-btn" onclick="takeShot('standard')" role="button" tabindex="0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="shot-icon"&gt;&lt;i class="ti ti-target"&gt;&lt;/i&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="shot-name"&gt;Attack&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="shot-desc"&gt;Go at the pin — birdie or bust&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="risk-pill risk-med"&gt;Medium risk&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="shot-btn" onclick="takeShot('aggressive')" role="button" tabindex="0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="shot-icon"&gt;&lt;i class="ti ti-bolt"&gt;&lt;/i&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="shot-name"&gt;Go for it&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="shot-desc"&gt;All or nothing — eagle or blow-up&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="risk-pill risk-high"&gt;High risk&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Result phase --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="phase-result" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hole-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hole-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="hole-name" id="res-name"&gt;-&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="hole-meta" id="res-meta"&gt;-&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hole-num-badge" id="res-num"&gt;-&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="res-vs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="res-player"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="res-player-name"&gt;You&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="res-strokes" id="your-strokes"&gt;-&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="res-score-name" id="your-score-name"&gt;-&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="res-divider"&gt;vs&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="res-player"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="res-player-name"&gt;Blades Brown&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="res-strokes" id="blades-strokes"&gt;-&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="res-score-name" id="blades-score-name"&gt;-&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="outcome-box" id="outcome-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="outcome-headline" id="outcome-hl"&gt;-&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="outcome-text" id="outcome-txt"&gt;-&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="next-btn" id="next-btn" onclick="nextHole()"&gt;Next hole →&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Final phase --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="phase-final" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="final-hero"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="final-hl" id="final-hl"&gt;Round Complete&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="final-sub" id="final-sub"&gt;9 holes played&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="final-scores"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="standing-chip"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="sc-label"&gt;You&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="sc-val" id="final-your-rel"&gt;E&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="sc-rel" id="final-your-strokes"&gt;-&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="divider-vs"&gt;vs&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="standing-chip"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="sc-label"&gt;Blades Brown&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="sc-val" id="final-blades-rel"&gt;E&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="sc-rel" id="final-blades-strokes"&gt;-&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="final-verdict" id="final-verdict"&gt;-&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="play-again" onclick="resetGame()"&gt;Play again&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="scorecard-wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;table class="scorecard" id="scorecard"&gt;&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">const holes=[</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{num:1,par:4,yards:412,name:"Opening Drive"},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{num:2,par:3,yards:178,name:"Short Iron Test"},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{num:3,par:5,yards:531,name:"Risk/Reward Par 5"},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{num:4,par:4,yards:398,name:"Dogleg Left"},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{num:5,par:3,yards:205,name:"Long Par 3"},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{num:6,par:4,yards:440,name:"Tough Approach"},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{num:7,par:5,yards:548,name:"Reachable Par 5"},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{num:8,par:4,yards:376,name:"Birdie Hole"},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{num:9,par:4,yards:421,name:"Closing Stretch"}</p>
+<p class="p1">];</p>
+<p class="p1">const bladesQuotes=[</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"Blades steps up looking focused. He turned pro at 17 — he's been playing pressure golf his whole life.",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"Blades is dialing in. He once made eagle and six birdies in his first seven holes at the American Express.",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"Par 5 — Blades goes aggressive. He's always hunting eagles. Always.",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"Blades takes a deep breath. He played alongside Scottie Scheffler on a Sunday. He doesn't rattle.",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"Long par 3. Blades loves these — pure iron play, no excuses.",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"Blades reads the wind. His dad's battle with leukemia taught him composure under pressure.",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"Another par 5. He fired a final-round 67 at the Byron Nelson to earn PGA Tour membership. He belongs here.",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"Blades smirks. Everyone knows this is a birdie hole. So does he.",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"Final hole. Blades is locked in. He said he'd 'go to school on the PGA Tour' at 17. Graduation day."</p>
+<p class="p1">];</p>
+<p class="p1">const outcomes={</p>
+<p class="p1"><span class="Apple-converted-space">  </span>safe:[{s:0,w:.55},{s:-1,w:.10},{s:1,w:.30},{s:2,w:.05}],</p>
+<p class="p1"><span class="Apple-converted-space">  </span>standard:[{s:-1,w:.30},{s:0,w:.40},{s:1,w:.22},{s:-2,w:.04},{s:2,w:.04}],</p>
+<p class="p1"><span class="Apple-converted-space">  </span>aggressive:[{s:-2,w:.12},{s:-1,w:.28},{s:0,w:.20},{s:1,w:.25},{s:2,w:.15}]</p>
+<p class="p1">};</p>
+<p class="p1">function pick(arr){let r=Math.random(),c=0;for(let i=0;i&lt;arr.length;i++){c+=arr[i].w;if(r&lt;c)return arr[i];}return arr[arr.length-1];}</p>
+<p class="p1">function bladesShot(idx){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const hot=idx&gt;=3&amp;&amp;idx&lt;=6;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const w=hot?[{s:-2,w:.08},{s:-1,w:.45},{s:0,w:.35},{s:1,w:.12}]:[{s:-2,w:.04},{s:-1,w:.35},{s:0,w:.42},{s:1,w:.15},{s:2,w:.04}];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return pick(w);</p>
+<p class="p1">}</p>
+<p class="p1">function scoreName(r){return r&lt;=-2?"Eagle":r===-1?"Birdie":r===0?"Par":r===1?"Bogey":"Double";}</p>
+<p class="p1">function relStr(n){return n===0?"E":(n&gt;0?"+":"")+n;}</p>
+<p class="p1">function relColor(n){return n&lt;0?"#0F6E56":n&gt;0?"#A32D2D":"#1a1a1a";}</p>
+<p class="p2"><br></p>
+<p class="p1">let state;</p>
+<p class="p1">function resetGame(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state={hole:0,yourTot:0,bladesTot:0,yourScores:[],bladesScores:[],pars:[]};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("phase-final").classList.add("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("phase-result").classList.add("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("phase-choose").classList.remove("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>updateHero(); showHole();</p>
+<p class="p1">}</p>
+<p class="p1">function updateHero(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const h=state.hole;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("cur-hole-num").textContent=Math.min(h+1,9);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("progress-pct").textContent=Math.round(h/9*100)+"% complete";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("progress").style.width=(h/9*100)+"%";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const totalPar=state.pars.reduce((a,b)=&gt;a+b,0);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const ys=totalPar+state.yourTot, bs=totalPar+state.bladesTot;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const yr=document.getElementById("your-running");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>yr.textContent=relStr(state.yourTot); yr.style.color=relColor(state.yourTot);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const br=document.getElementById("blades-running");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>br.textContent=relStr(state.bladesTot); br.style.color=relColor(state.bladesTot);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("your-strokes-total").textContent=h&gt;0?ys+" strokes":"—";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("blades-strokes-total").textContent=h&gt;0?bs+" strokes":"—";</p>
+<p class="p1">}</p>
+<p class="p1">function showHole(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const h=holes[state.hole];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("hole-name").textContent=h.name;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("hole-meta").textContent="Par "+h.par+" · "+h.yards+" yds";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("hole-num-badge").textContent=h.num;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("blades-comment").textContent=bladesQuotes[state.hole];</p>
+<p class="p1">}</p>
+<p class="p1">function takeShot(type){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const h=holes[state.hole];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const you=pick(outcomes[type]), blades=bladesShot(state.hole);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const ys=h.par+you.s, bs=h.par+blades.s;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.yourTot+=you.s; state.bladesTot+=blades.s;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.yourScores.push(you.s); state.bladesScores.push(blades.s); state.pars.push(h.par);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("phase-choose").classList.add("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("phase-result").classList.remove("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("res-name").textContent=h.name;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("res-meta").textContent="Par "+h.par+" · "+h.yards+" yds";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("res-num").textContent=h.num;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const yse=document.getElementById("your-strokes");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>yse.textContent=ys; yse.style.color=relColor(you.s);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const bse=document.getElementById("blades-strokes");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>bse.textContent=bs; bse.style.color=relColor(blades.s);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const ysn=document.getElementById("your-score-name");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ysn.textContent=scoreName(you.s); ysn.style.color=relColor(you.s);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const bsn=document.getElementById("blades-score-name");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>bsn.textContent=scoreName(blades.s); bsn.style.color=relColor(blades.s);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const diff=you.s-blades.s;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const ob=document.getElementById("outcome-box");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ob.className="outcome-box "+(diff&lt;0?"outcome-win":diff&gt;0?"outcome-lose":"outcome-tie");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("outcome-hl").textContent=diff&lt;0?"You win the hole":diff&gt;0?"Blades takes it":"Halved";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("outcome-txt").textContent=getCommentary(diff,you.s,blades.s,h,type);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("next-btn").textContent=state.hole&lt;9?"Next hole →":"See final results →";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>updateHero();</p>
+<p class="p1">}</p>
+<p class="p1">function getCommentary(diff,ys,bs,h,type){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const bn=scoreName(bs).toLowerCase(), yn=scoreName(ys).toLowerCase();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(diff&lt;0){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(ys&lt;=-2)return "Eagle! That's a statement. Even Blades looks impressed — and he once nearly shot 59 as an 18-year-old.";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(ys===-1)return "Birdie! Sharp play. Blades had a "+bn+" — today you outplayed the phenom.";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return "You take the hole. Blades had a "+bn+". Not his best.";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}else if(diff&gt;0){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(bs&lt;=-2)return "Eagle for Blades. He said he'd go to school on the PGA Tour at 17 — today he's teaching.";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(bs===-1)return "Birdie for Blades. Classic. He's been hunting birdies since he was 16.";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return "Blades edges you. He played with Scottie Scheffler on a Sunday — he doesn't rattle.";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}else{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(ys===0)return "Both par. Solid hole. A clean par is still a par.";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(ys===-1)return "Both birdie! The crowd loves it. Great hole.";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return "Halved — both a "+yn+". Reset and move on.";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p1">function nextHole(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.hole++;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("phase-result").classList.add("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(state.hole&gt;=9){showFinal();}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>else{document.getElementById("phase-choose").classList.remove("hidden");showHole();}</p>
+<p class="p1">}</p>
+<p class="p1">function scoreTag(rel,strokes){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const cls=rel&lt;=-2?"s-eagle":rel===-1?"s-birdie":rel===0?"s-par":rel===1?"s-bogey":"s-double";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return "&lt;span class='"+cls+"'&gt;"+strokes+"&lt;/span&gt;";</p>
+<p class="p1">}</p>
+<p class="p1">function showFinal(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("phase-final").classList.remove("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const totalPar=state.pars.reduce((a,b)=&gt;a+b,0);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const yt=totalPar+state.yourTot, bt=totalPar+state.bladesTot;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const diff=state.yourTot-state.bladesTot;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const fyr=document.getElementById("final-your-rel");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>fyr.textContent=relStr(state.yourTot); fyr.style.color=relColor(state.yourTot);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const fbr=document.getElementById("final-blades-rel");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>fbr.textContent=relStr(state.bladesTot); fbr.style.color=relColor(state.bladesTot);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("final-your-strokes").textContent=yt+" strokes";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("final-blades-strokes").textContent=bt+" strokes";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("final-hl").textContent=diff&lt;0?"You beat Blades Brown!":diff&gt;0?"Blades Brown wins":"All square — a tie!";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("final-sub").textContent=diff&lt;0?"Impressive round against the PGA Tour's newest star":diff&gt;0?"The phenom shows why he turned pro at 17":"You matched a PGA Tour star stroke for stroke";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("final-verdict").textContent=diff&lt;0</p>
+<p class="p1"><span class="Apple-converted-space">    </span>?"You outplayed a 19-year-old who once nearly shot 59 on the PGA Tour. Blades Brown turned pro at 17 and earned PGA Tour membership at 19 — and today you had the better of him. Remember the name: you'll see him at majors soon."</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:diff&gt;0</p>
+<p class="p1"><span class="Apple-converted-space">    </span>?"Blades edges you out. He bypassed college to go to school on the PGA Tour — and lessons like this show why. The fire, the composure, the birdie-hunting. He'll be back."</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:"A dead heat against one of the most exciting young golfers in the world. Blades earned Special Temporary PGA Tour membership at 19 — and you kept pace all day. Take a bow.";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let html="&lt;tr&gt;&lt;th&gt;Hole&lt;/th&gt;&lt;th&gt;Par&lt;/th&gt;&lt;th&gt;You&lt;/th&gt;&lt;th&gt;Blades&lt;/th&gt;&lt;/tr&gt;";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for(let i=0;i&lt;9;i++){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const p=state.pars[i],ys=p+state.yourScores[i],bs=p+state.bladesScores[i];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>html+="&lt;tr&gt;&lt;td class='hn'&gt;"+(i+1)+"&lt;/td&gt;&lt;td&gt;"+p+"&lt;/td&gt;&lt;td&gt;"+scoreTag(state.yourScores[i],ys)+"&lt;/td&gt;&lt;td&gt;"+scoreTag(state.bladesScores[i],bs)+"&lt;/td&gt;&lt;/tr&gt;";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>html+="&lt;tr&gt;&lt;td colspan='2'&gt;Total&lt;/td&gt;&lt;td&gt;"+yt+" ("+relStr(state.yourTot)+")&lt;/td&gt;&lt;td&gt;"+bt+" ("+relStr(state.bladesTot)+")&lt;/td&gt;&lt;/tr&gt;";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("scorecard").innerHTML=html;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("progress").style.width="100%";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("cur-hole-num").textContent="9";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("progress-pct").textContent="100% complete";</p>
+<p class="p1">}</p>
+<p class="p1">resetGame();</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
